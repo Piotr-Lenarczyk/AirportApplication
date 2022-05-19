@@ -22,4 +22,12 @@
       <PackageReference Include="System.Data.SQLite" Version="1.0.115.5" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Pages\Airport" />
+      <Folder Include="Pages\City" />
+      <Folder Include="Pages\Country" />
+      <Folder Include="Pages\Flight" />
+      <Folder Include="Pages\Seat" />
+    </ItemGroup>
+
 </Project>
