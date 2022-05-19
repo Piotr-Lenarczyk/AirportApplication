@@ -1,0 +1,38 @@
+@model AirportApplication.Models.Airport
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IQueryable<City> cities = ViewBag.Cities;
+}
+
+<h1>Edit</h1>
+
+<h4>Airport</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AirportName" />
+            <div class="form-group">
+                <label asp-for="City" class="control-label"></label><br />
+                <select asp-for="City" name="values">
+                        @foreach (var item in cities)
+                        {
+                            <option value="@item.CityName">@item.CityName</option>
+                        }
+                </select>
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
