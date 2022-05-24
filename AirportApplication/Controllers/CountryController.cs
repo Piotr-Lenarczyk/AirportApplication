@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using Microsoft.AspNetCore.Mvc;
 using AirportApplication.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AirportApplication.Controllers;
 
