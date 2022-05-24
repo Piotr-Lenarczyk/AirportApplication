@@ -7,9 +7,12 @@
 
 <h1>Flight Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
 <table class="table">
     <thead>
         <tr>
@@ -50,9 +53,15 @@
                 @Html.DisplayFor(modelItem => item.DepartureGate)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.FlightName">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FlightName">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FlightName">Delete</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Edit" asp-route-id="@item.FlightName">Edit</a>
+                }
+                | <a asp-action="Details" asp-route-id="@item.FlightName">Details</a> |
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-action="Delete" asp-route-id="@item.FlightName">Delete</a>
+                }
             </td>
         </tr>
 }
