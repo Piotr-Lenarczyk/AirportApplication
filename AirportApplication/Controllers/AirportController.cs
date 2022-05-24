@@ -1,9 +1,11 @@
 ﻿using System.Data.Entity;
 using AirportApplication.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AirportApplication.Controllers;
 
+[Authorize]
 public class AirportController : Controller
 {
     private SqLiteContext _db = new SqLiteContext();

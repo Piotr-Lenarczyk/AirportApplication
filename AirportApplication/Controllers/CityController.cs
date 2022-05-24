@@ -1,11 +1,13 @@
 ﻿using System.Data.Entity;
 using AirportApplication.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 
 namespace AirportApplication.Controllers;
 
+[Authorize]
 public class CityController : Controller
 {
     private SqLiteContext _db = new SqLiteContext();

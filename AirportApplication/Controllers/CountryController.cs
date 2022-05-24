@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AirportApplication.Controllers;
 
+[Authorize]
 public class CountryController : Controller
 {
     private SqLiteContext _db = new SqLiteContext();
