@@ -7,7 +7,7 @@ namespace AirportApplication.Controllers;
 public class FlightController : Controller
 {
     private SqLiteContext _db = new SqLiteContext();
-    
+        
     // GET
     public IActionResult Index()
     {
@@ -76,5 +76,67 @@ public class FlightController : Controller
         _db.Flights?.Remove(flight);
         _db.SaveChanges();
         return RedirectToAction("Index");
+    }
+    
+    public IActionResult Book(string id)
+    {
+        var flights = _db.Flights.Include("FlightName");
+        Flight flight = flights.FirstOrDefault(item => item.FlightName == id);
+        return View(flight);
+    }
+    
+    [HttpPost]
+    public IActionResult Book()
+    {
+        var seat = Request.Form["SeatType"].ToString();
+        var name = Request.Form["Flight"].ToString();
+        if (seat == "Window Seat")
+        {
+            return RedirectToAction("WindowSuccess", new { id = name});
+        }
+        else if (seat == "Center Seat")
+        {
+            return RedirectToAction("CenterSuccess", new { id = name});
+        }
+        else if (seat == "Aisle Seat")
+        {
+            Random random = new Random();
+            int number = random.Next(0, 2);
+            if (number == 0)
+            {
+                return RedirectToAction("Failure");
+            }
+            else
+            {
+                return RedirectToAction("AisleSuccess", new { id = name});
+            }
+        }
+        return RedirectToAction("Index");
+    }
+    
+    public IActionResult WindowSuccess(string id)
+    {
+        var flights = _db.Flights.Include("FlightName");
+        Flight flight = flights.FirstOrDefault(item => item.FlightName == id);
+        return View(flight);
+    }
+    
+    public IActionResult CenterSuccess(string id)
+    {
+        var flights = _db.Flights.Include("FlightName");
+        Flight flight = flights.FirstOrDefault(item => item.FlightName == id);
+        return View(flight);
+    }
+    
+    public IActionResult AisleSuccess(string id)
+    {
+        var flights = _db.Flights.Include("FlightName");
+        Flight flight = flights.FirstOrDefault(item => item.FlightName == id);
+        return View(flight);
+    }
+
+    public IActionResult Failure()
+    {
+        return View();
     }
 }

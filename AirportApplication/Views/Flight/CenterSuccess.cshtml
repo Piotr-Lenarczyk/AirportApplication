@@ -1,0 +1,61 @@
+﻿@model AirportApplication.Models.Flight
+
+@{
+    ViewData["Title"] = "Success";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Random random = new Random();
+    int number = random.Next(1, 16);
+    String seat = "C" + number;
+}
+
+<h1 xmlns="http://www.w3.org/1999/html">You have successfully booked a seat</h1>
+<h2>Flight Details</h2>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FlightName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FlightName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartureAirport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartureAirport)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ArrivalAirport)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ArrivalAirport)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartureDate.Year)-@Html.DisplayFor(model => model.DepartureDate.Month)-@Html.DisplayFor(model => model.DepartureDate.Day)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartureTime.Hour):00
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartureGate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartureGate)
+        </dd>
+        <dt class="col-sm-2">
+            Seat Number
+        </dt>
+        <dd class="col-sm-10">
+            @seat
+        </dd>
+    </dl>
+</div>
+<a asp-action="Index" class="btn btn-primary">Book another flight</a>

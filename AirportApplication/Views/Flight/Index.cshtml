@@ -15,27 +15,27 @@
 }
 <table class="table">
     <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DepartureAirport)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ArrivalAirport)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DepartureDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DepartureTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DepartureGate)
-            </th>
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureAirport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalAirport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureGate)
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.DepartureAirport)
@@ -55,15 +55,13 @@
             <td>
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <a asp-action="Edit" asp-route-id="@item.FlightName">Edit</a>
-                }
-                | <a asp-action="Details" asp-route-id="@item.FlightName">Details</a> |
-                @if (User.Identity.IsAuthenticated)
-                {
+                    <a asp-action="Edit" asp-route-id="@item.FlightName">Edit</a> 
+                    <a asp-action="Details" asp-route-id="@item.FlightName">Details</a> 
                     <a asp-action="Delete" asp-route-id="@item.FlightName">Delete</a>
                 }
+                <a asp-action="Book" asp-route-id="@item.FlightName">Book</a>
             </td>
         </tr>
-}
+    }
     </tbody>
 </table>
