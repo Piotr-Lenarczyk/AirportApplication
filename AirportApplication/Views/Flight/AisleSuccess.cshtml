@@ -10,42 +10,42 @@
 
 <h1 xmlns="http://www.w3.org/1999/html">You have successfully booked a seat</h1>
 <h2>Flight Details</h2>
-
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Checkmark_green.svg/1180px-Checkmark_green.svg.png" alt="" width="128px" height="128px">
 <div>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FlightName)
+            Flight Name
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FlightName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DepartureAirport)
+            Departure Airport
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DepartureAirport)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ArrivalAirport)
+           Arrival Airport
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ArrivalAirport)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DepartureDate)
+            Departure Date
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DepartureDate.Year)-@Html.DisplayFor(model => model.DepartureDate.Month)-@Html.DisplayFor(model => model.DepartureDate.Day)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DepartureTime)
+            Departure Time
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DepartureTime.Hour):00
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.DepartureGate)
+            Departure Gate
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DepartureGate)

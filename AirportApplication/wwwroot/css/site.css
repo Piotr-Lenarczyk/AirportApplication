@@ -16,3 +16,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+img {
+  margin: auto;
+  display: block;
+}
+
+.col-sm-2 {
+  text-align: center;
+}
