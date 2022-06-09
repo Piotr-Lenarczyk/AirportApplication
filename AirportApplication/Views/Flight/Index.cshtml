@@ -7,61 +7,58 @@
 
 <h1>Flight Index</h1>
 
-@if (User.Identity.IsAuthenticated)
-{
-    <p>
-        <a asp-action="Create">Create New</a>
-    </p>
-}
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
 <table class="table">
-    <thead>
+<thead>
+<tr>
+    <th>
+        @Html.DisplayNameFor(model => model.DepartureAirport)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.ArrivalAirport)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.DepartureDate)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.DepartureTime)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.DepartureGate)
+    </th>
+    <th></th>
+</tr>
+</thead>
+<tbody>
+@foreach (var item in Model) {
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartureAirport)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ArrivalAirport)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartureDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartureTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartureGate)
-        </th>
-        <th></th>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureAirport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalAirport)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureDate.Year)-@Html.DisplayFor(modelItem => item.DepartureDate.Month)-@Html.DisplayFor(modelItem => item.DepartureDate.Day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureTime.Hour):00
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureGate)
+        </td>
+        <td>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-action="Edit" asp-route-id="@item.FlightName">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.FlightName">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.FlightName">Delete</a>
+            }
+            <a asp-action="Book" asp-route-id="@item.FlightName">Book</a>
+        </td>
     </tr>
-    </thead>
-    <tbody>
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartureAirport)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArrivalAirport)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartureDate.Year)-@Html.DisplayFor(modelItem => item.DepartureDate.Month)-@Html.DisplayFor(modelItem => item.DepartureDate.Day)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartureTime.Hour):00
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartureGate)
-            </td>
-            <td>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <a asp-action="Edit" asp-route-id="@item.FlightName">Edit</a> 
-                    <a asp-action="Details" asp-route-id="@item.FlightName">Details</a> 
-                    <a asp-action="Delete" asp-route-id="@item.FlightName">Delete</a>
-                }
-                <a asp-action="Book" asp-route-id="@item.FlightName">Book</a>
-            </td>
-        </tr>
-    }
-    </tbody>
+}
+</tbody>
 </table>
