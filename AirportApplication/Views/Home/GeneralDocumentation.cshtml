@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "General Documentation";
+    Layout = "_Layout";
+}
+
+<h1>General Documentation</h1>
+
+<h3>What is the AirportApplication?</h3>
+
+<p>
+    AirportApplication is a web application simulating a system of booking a flight in an airport.
+</p>
+
+<h3>What is the user allowed to do?</h3>
+
+<p>
+    There are 2 types of users: normal and administrative.
+</p>
+
+<p>
+    A normal user can:
+</p>
+
+<ul>
+    <li>Book a flight</li>
+    <li>View privacy policy</li>
+    <li>See this page as well as API documentation</li>
+    <li>Login to an elevated privelege account</li>
+</ul>
+
+<p>
+    An administrative user must be logged in and can do everything a normal user can, as well as perform any CRUD operation on any of the models involved.
+</p>
+
+<h3>What is the Tech Stack?</h3>
+
+<ul>
+    <li>Rider as a IDE</li>
+    <li>ASP.NET Core for backend and frontend</li>
+    <li>Entity Framework as an ORM</li>
+    <li>SQLite as a database</li>
+    <li>StarUML for class diagram design</li>
+    <li>Swagger for API documentation</li>
+</ul>
+
+<h3>Class Diagram:</h3>
+<img src="~/images/ClassDiagram.jpg" width="387" height="461" alt="Class Diagram"/>
+
+<a class="btn btn-primary" asp-controller="Home" asp-action="Documentation">Back to documentation index</a>
